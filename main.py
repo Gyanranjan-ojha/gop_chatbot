@@ -1,4 +1,4 @@
-import os
+import os,re
 from time import sleep
 from flask import Flask, request, jsonify,render_template,request,redirect,url_for
 from openai import OpenAI
@@ -19,7 +19,7 @@ assistant_id = create_assistant(client)
 
 @app.route('/')
 def home():
-  return render_template('index1.html')
+  return render_template('index.html')
 
 # Start conversation thread
 @app.route('/getGPTAssistant', methods=['GET'])
@@ -64,10 +64,10 @@ def chat():
   messages = client.beta.threads.messages.list(thread_id=thread_id)
   response = messages.data[0].content[0].text.value
   print(f"response: {response}")
-
+  cleaned_response = re.sub(r'【.*?】', '', response)
   if i <10 :
-    print(f"Assistant response: {response}")  # Debugging line
-    return jsonify({"response": response})
+    print(f"Assistant response: {cleaned_response}")  # Debugging line
+    return jsonify({"response": cleaned_response})
   else:
     return jsonify({"response": "please re-check you text"}), 400
 
