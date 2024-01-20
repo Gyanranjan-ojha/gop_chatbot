@@ -1,0 +1,16 @@
+[
+  {
+    "game": "Counter Strike 2",
+    "genre": "Puzzle, RPG",
+    "business_model": "Pay to Win, Microtransaction - gun item only",
+    "release_date": "09-11-2050",
+    "theme": "Fantasy, Zombie"
+  },
+  {
+    "game": "GTA V",
+    "genre": "Action, Shooting",
+    "business_model": "No Business Model Here",
+    "release_date": "11-11-2050",
+    "theme": "Horror"
+  }
+]

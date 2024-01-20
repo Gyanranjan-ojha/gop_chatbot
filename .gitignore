@@ -12,3 +12,6 @@ __pycache__/
 
 # Migrations Folder
 migrations/
+
+# JSON file
+assistant.json

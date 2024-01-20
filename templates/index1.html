@@ -1,0 +1,227 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+      height: 100vh; 
+      width: 100%;
+      background: #d3d3d3;
+    }
+
+    .second-column {
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      height: 90%;
+      width: 50%;
+      margin-left: 25%;
+    }
+
+    .image-container {
+      flex: 1; 
+      background-color: #c0c0c0; 
+      padding: 20px;
+      box-sizing: border-box;
+      margin-top: 10%;
+      height: 550px;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+
+    .form-container {
+      background-color: #a9a9a9; 
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .img-div{
+      margin-top: 3%;
+      height: 60%;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+      border: 2px dotted #000;
+      text-align: center;
+    }
+    .img-div img {
+      max-width: 100px;
+      height: 50px; 
+      display: block; 
+      margin-top: 3%;
+      margin-left: 45%;
+    }
+    .input{
+      padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 95px;
+    }
+    .input2{
+      padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 80px;
+    }
+    .input3{
+      padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 45px;
+    width: 33%;
+    }
+    .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    }
+    .button1 {
+    margin-top: 2%; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="second-column">
+      <div class="image-container">
+        <label>Game ID: </label>
+        <input placeholder="Enter game id" class="input" id="game_id"><br><br>
+        <label>Release ID: </label>
+        <input placeholder="Enter Release id" class="input2" id="release_id"><br><br>
+        <label>Select Platform: </label>
+        <select placeholder="select" class="input3" id="platform_name">
+          <option value="0">All</option>
+          <option value="1">Xbox</option>
+          <option value="2">PlayStation 3</option>
+          <option value="3">Windows</option>
+          <option value="4">e-Reader</option>
+          <option value="5">3DO</option>
+          <option value="6">Adventure Vision</option>
+          <option value="7">Amiga</option>
+          <option value="8">Amiga CD32</option>
+          <option value="9">Commodore CDTV</option>
+          <option value="10">Amstrad CPC</option>
+        </select>
+        <div class="img-div">
+          <img src="static/icons/cloud-backup-icon.svg" alt="Your Image">
+          <h3>Drag and drop files here</h3>
+          <p>Files supported: JPG</p>
+          <b>or</b><br><br>
+          <button type="button">
+            <input type="file" id="fileInputControl" webkitdirectory ='true' class="button"/>
+          </button>
+        </div>
+        <div style="text-align: right;">
+          <button type="submit" class="button1">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html> -->
+<!-- chatbot_app/templates/chatbot_app/chat.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot Popup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    #chatPopup {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #chatHeader {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #chatBody {
+      padding: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    #chatInput {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+    }
+
+    #chatButton {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 0 0 8px 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="openChat" onclick="toggleChatPopup()">Open Chat</button>
+
+  <div id="chatPopup">
+    <div id="chatHeader">Chatbot</div>
+    <div id="chatBody"></div>
+    <input type="text" id="chatInput" placeholder="Type your question">
+    <button id="chatButton" onclick="sendMessage()">Send</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="../static/JS/main.js"></script>
+</body>
+
+</html>

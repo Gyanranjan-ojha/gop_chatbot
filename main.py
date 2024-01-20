@@ -12,16 +12,14 @@ print(OPENAI_API_KEY)
 app = Flask(__name__)
 
 # Init client
-client = OpenAI(
-    api_key=OPENAI_API_KEY)  
+client = OpenAI(api_key=OPENAI_API_KEY)  
 
 # Create new assistant or load existing
 assistant_id = create_assistant(client)
 
 @app.route('/')
 def home():
-  return render_template('index.html')
-  # return render_template('sample.html')
+  return render_template('index1.html')
 
 # Start conversation thread
 @app.route('/getGPTAssistant', methods=['GET'])
@@ -44,13 +42,10 @@ def chat():
     print("Error: Missing thread_id")  # Debugging line
     return jsonify({"error": "Missing thread_id"}), 400
 
-  print(f"Received message: {user_input} for thread ID: {thread_id}"
-        )  # Debugging line
+  print(f"Received message: {user_input} for thread ID: {thread_id}")  # Debugging line
 
   # Add the user's message to the thread
-  client.beta.threads.messages.create(thread_id=thread_id,
-                                      role="user",
-                                      content=user_input)
+  client.beta.threads.messages.create(thread_id=thread_id,role="user",content=user_input)
 
   # Run the Assistant
   run = client.beta.threads.runs.create(thread_id=thread_id,assistant_id=assistant_id)
