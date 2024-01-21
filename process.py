@@ -20,7 +20,9 @@ try:
     cur.execute("select id,title from games WHERE id IN (69683, 25291,39816,18302,32109,80363,89424,17869, 18343, 24881, 26320)")
     data = cur.fetchall()
     for game_id,title in data:
-        result[f'{game_id}']={"title": title,"staff_link":f"https://gameopedia.com/staff/games/{game_id}"}
+        result[f'{game_id}']={"title": title,
+                              "staff_link":f"https://gameopedia.com/staff/games/{game_id}",
+                              "category": dict()}
     
     cur.execute("""SELECT  r.game_id, group_concat(cp.name,',') FROM releases r 
         LEFT join company_roles cpr on cpr.release_id = r.id
@@ -54,7 +56,7 @@ try:
 
     cur.execute("""SELECT gc.game_id, ct.name ,
                     group_concat((CASE WHEN gco.value_option_id IS NULL THEN c.name
-                    ELSE v.name END ),", " ) AS datapoints 
+                    ELSE v.name END )," " ) AS datapoints 
                     FROM game_classifications gc 
                     LEFT JOIN game_classification_options gco ON gc.id = gco.game_classification_id
                     INNER JOIN classifications c ON gc.classification_id = c.id
@@ -69,14 +71,12 @@ try:
                     AND v.deleted_at IS NULL
                     GROUP BY gc.game_id, ct.name """)
     classifications_data = cur.fetchall()
-    # print(classifications_data)
-    # print(result)
+    
     for game_id,category,datapoints in classifications_data:
-        result[f'{game_id}']['category']={f'{category}': datapoints}
-    # output = json.dump(result)
-    # print(output)
+        result[f'{game_id}']['category'][f'{category}']= datapoints
+    
     mysql_conn.close()
-    # print(data)
+    
     # Writing JSON data
     with open('knowledge.json', 'w') as json_file:
         json.dump(list(result.values()), json_file, indent=4) 
