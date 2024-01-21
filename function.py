@@ -1,12 +1,16 @@
 import json
 import os
 
+inst = """You are working in gaming company. You have to give data from the knowledge json database, don't act like bot or AI. Act like human sitting on help desk. Just give them data what they ask and suggest them what they want. Only talk related to the data you have. Deny them politely if they ask about other topic than game. Keep you reply precise and short.
+If they ask for game metadata, give them data in proper stucture way. Below are the datapoints belong to meta data.
+Metadata :- "Genres", "Sub-Genre", "Developer", "Release date", "Theme"
+"""
+
 def create_assistant(client):
   try:
     assistant_file_path = 'assistant.json'
     file = client.files.create(file=open("knowledge.json", "rb"),purpose='assistants')
-    # file = client.files.create(file=open("knowledge.docx", "rb"),purpose='assistants')
-    assistant = client.beta.assistants.create(instructions=" You are game data assistant of online website. you will be given multiple game data and you have to assisst user that visit this website with their query. Only assisst them in gaming related queries that are in knowledge data and reject them politely if it is not related to gaming. ",
+    assistant = client.beta.assistants.create(instructions=inst,
                                     # model="gpt-4-1106",
                                     model="gpt-3.5-turbo-1106",
                                     tools=[{
