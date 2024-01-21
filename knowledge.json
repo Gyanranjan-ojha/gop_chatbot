@@ -33,7 +33,10 @@
         },
         "developer": "Epic Games, Inc.,,People Can Fly, Sp. z o.o.,",
         "release data": "30-06-2020",
-        "locality": "United States (US)"
+        "locality": "United States (US)",
+        "screenshots": [
+            "https://s3.amazonaws.com/gameopedia_covers/screenshots/1339408/910519ea5b6a97946371f4d85dcacfbe.jpg"
+        ]
     },
     {
         "title": "Rocket League",
@@ -110,7 +113,11 @@
         },
         "developer": "Supergiant Games, LLC,",
         "release data": "17-09-2020",
-        "locality": "United States (US)"
+        "locality": "United States (US)",
+        "screenshots": [
+            "https://s3.amazonaws.com/gameopedia_covers/screenshots/2183013/cb1b6753a1e28fb773fd3526e559adba.jpg"
+        ]
+        
     },
     {
         "title": "Grand Theft Auto V",
@@ -135,5 +142,22 @@
         "developer": "Bethesda Game Studios,",
         "release data": "11-11-2021",
         "locality": "United States (US)"
+    },
+    {
+        "title": "Hollow Knight",
+        "staff_link": "https://gameopedia.com/staff/games/25291",
+        "category": {
+            "Business Model": "No Microtransactions ,Ads ,No Ads ,Subscription Model ,Game Acquisition ,No Subscription Model ,Buy to Acquire ,Microtransactions ,Buy to Acquire ",
+            "Genre": "Platform ",
+            "Sub-genre": "Fighting ,Adventure ",
+            "Theme": "Animal ,Fantasy ,Mystery ,Anthropomorphism ,Anthropomorphic Animals ,High Fantasy ,Insect "
+        },
+        "developer": "Team Cherry Pty. Ltd.,",
+        "release data": "24-02-2017",
+        "locality": "United States (US)",
+        "screenshots": [
+            "https://s3.amazonaws.com/gameopedia_covers/screenshots/5128715/c87bc9dfe840548d3e1cafe0c87489ba.jpg",
+            "https://s3.amazonaws.com/gameopedia_covers/screenshots/5128712/b3e1853d4489e63f6fe91780c32a862c_full480.jpg"
+        ]
     }
 ]

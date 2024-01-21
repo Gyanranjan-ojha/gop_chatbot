@@ -44,7 +44,46 @@ def chat():
     return jsonify({"error": "Missing thread_id"}), 400
 
   print(f"Received message: {user_input} for thread ID: {thread_id}")  # Debugging line
-
+  game_str = user_input.strip().split()[-1].lower()
+  if game_str == "fortnite":
+    data= {
+        "title": "Fortnite",
+        "staff_link": "https://gameopedia.com/staff/games/18343",
+        "category": {
+            "Business Model": "Game Acquisition ,Buy to Acquire ,Microtransactions ,Cosmetic & Gameplay Affecting ,Ads ,No Ads ,Subscription Model ,No Subscription Model ,Microtransactions ,Buy to Acquire ",
+            "Genre": "Action ",
+            "Sub-genre": "Shooter ,Platform ,Role-Playing ,Strategy ",
+            "Theme": "Post-Apocalyptic ,Sci-Fi ,Zombie ,Epidemic Breakout ,Surviving "
+        },
+        "developer": "Epic Games, Inc.,,People Can Fly, Sp. z o.o.,",
+        "release data": "30-06-2020",
+        "locality": "United States (US)",
+        "screenshots": [
+            "https://s3.amazonaws.com/gameopedia_covers/screenshots/1339408/910519ea5b6a97946371f4d85dcacfbe.jpg"
+        ]
+    }
+    return jsonify({"message":data,"source":False})
+  elif game_str=="hades":
+    data = {
+        "title": "Hades",
+        "staff_link": "https://gameopedia.com/staff/games/69683",
+        "category": {
+            "Business Model": "Game Acquisition ,Buy to Acquire ,Microtransactions ,No Microtransactions ,Ads ,No Ads ,Subscription Model ,No Subscription Model ,Buy to Acquire ",
+            "Genre": "Action ,Role-Playing ",
+            "Sub-genre": "Fighting ,Shooter ",
+            "Theme": "Family ,Mythology ,Fantasy ,Escape ,High Fantasy ,Greek "
+        },
+        "developer": "Supergiant Games, LLC,",
+        "release data": "17-09-2020",
+        "locality": "United States (US)",
+        "screenshots": [
+            "https://s3.amazonaws.com/gameopedia_covers/screenshots/2183013/cb1b6753a1e28fb773fd3526e559adba.jpg"
+        ]
+        
+    }
+    print(data)
+    return jsonify({"message":data,"source":False})
+  
   # Add the user's message to the thread
   client.beta.threads.messages.create(thread_id=thread_id,role="user",content=user_input)
 
@@ -71,9 +110,10 @@ def chat():
   response = messages.data[0].content[0].text.value
   print(f"response: {response}")
   cleaned_response = re.sub(r'【.*?】', '', response)
+  
   if i <10:
     print(f"Assistant response: {cleaned_response}")  # Debugging line
-    return jsonify({"response": cleaned_response})
+    return jsonify({"message":cleaned_response,"source":True})
   else:
     return jsonify({"response": "please re-check you text"}), 400
     # completion = client.chat.completions.create(
