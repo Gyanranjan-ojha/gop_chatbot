@@ -16,6 +16,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Create new assistant or load existing
 assistant_id = create_assistant(client)
+print("assistant_id",assistant_id)
 
 @app.route('/')
 def home():
@@ -57,19 +58,32 @@ def chat():
     print(f"Run status: {run_status.status}")
     if run_status.status == 'completed':
       break
+    # else:
+    #   pass
+      # print(run_status)
+      # print(client.beta.threads.messages.list(thread_id=thread_id))
     i += 1
-    sleep(2)  # Wait for a second before checking again
+    sleep(2)  # Wait for two second before checking again
 
   # Retrieve and return the latest message from the assistant
   messages = client.beta.threads.messages.list(thread_id=thread_id)
+  # print(f"messages: {messages}")#
   response = messages.data[0].content[0].text.value
   print(f"response: {response}")
   cleaned_response = re.sub(r'【.*?】', '', response)
-  if i <10 :
+  if i <10:
     print(f"Assistant response: {cleaned_response}")  # Debugging line
     return jsonify({"response": cleaned_response})
   else:
     return jsonify({"response": "please re-check you text"}), 400
+    # completion = client.chat.completions.create(
+    # model="gpt-3.5-turbo-1106",
+    # messages=[{"role": "user", "content": user_input}])
+    # data = completion.choices[0].message
+    # print(f"else data: {data}")
+    # resp = data.content
+    # print(f"else resp: {resp}")
+    # return jsonify({"response": resp})
 
 
 # Run server

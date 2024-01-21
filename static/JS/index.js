@@ -182,7 +182,6 @@
 // // Call getInput() when the script loads to initialize assistant ID and thread ID
 // getInput();
 
-
 document.addEventListener("DOMContentLoaded", function() {
     // Variables to manage chatbot elements
     const chatbot = document.querySelector('.chatbot');
@@ -220,6 +219,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (message) {
             sendMessage(message);
             showThinking();
+        }
+    });
+
+    // Enter key pressed in textarea
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (message) {
+                sendMessage(message);
+                showThinking();
+            }
         }
     });
 
