@@ -1,16 +1,108 @@
 [
   {
-    "game": "Counter Strike 2",
-    "genre": "Puzzle, RPG",
-    "business_model": "Pay to Win, Microtransaction - gun item only",
-    "release_date": "09-11-2050",
-    "theme": "Fantasy, Zombie"
+    "title": "Counter-Strike: Global Offensive",
+    "staff_link": "https://gameopedia.com/staff/games/17869",
+    "developer": "Hidden Path Entertainment, Inc.,,Valve Corporation,",
+    "release data": "21-08-2012",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Counter-Terrorism, ,Terrorism, "
+    }
   },
   {
-    "game": "GTA V",
-    "genre": "Action, Shooting",
-    "business_model": "No Business Model Here",
-    "release_date": "11-11-2050",
-    "theme": "Horror"
+    "title": "The Last of Us",
+    "staff_link": "https://gameopedia.com/staff/games/18302",
+    "developer": "Naughty Dog LLC,",
+    "category": {
+      "Theme": "Epidemic Breakout, ,Post-Apocalyptic, ,Horror, ,Zombie, "
+    }
+  },
+  {
+    "title": "Fortnite",
+    "staff_link": "https://gameopedia.com/staff/games/18343",
+    "developer": "Epic Games, Inc.,,People Can Fly, Sp. z o.o.,",
+    "release data": "30-06-2020",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Post-Apocalyptic, ,Sci-Fi, ,Zombie, ,Epidemic Breakout, ,Surviving, "
+    }
+  },
+  {
+    "title": "Rocket League",
+    "staff_link": "https://gameopedia.com/staff/games/24881",
+    "developer": "Psyonix LLC,",
+    "release data": "07-07-2015",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Vehicle, ,Vehicle, ,Fictional Vehicle, ,Ball & Net, ,Football (Soccer), ,Sport, ,Sport, "
+    }
+  },
+  {
+    "title": "Hollow Knight",
+    "staff_link": "https://gameopedia.com/staff/games/25291",
+    "developer": "Team Cherry Pty. Ltd.,",
+    "release data": "24-02-2017",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Animal, ,Fantasy, ,Mystery, ,Anthropomorphism, ,Anthropomorphic Animals, ,High Fantasy, ,Insect, "
+    }
+  },
+  {
+    "title": "Factorio",
+    "staff_link": "https://gameopedia.com/staff/games/26320",
+    "developer": "Wube Software Limited,",
+    "release data": "14-08-2020",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Construction / Building, ,Construction / Building, ,Industrial, ,Sci-Fi, "
+    }
+  },
+  {
+    "title": "Red Dead Redemption 2",
+    "staff_link": "https://gameopedia.com/staff/games/32109",
+    "developer": "Rockstar Studios,",
+    "release data": "05-12-2019",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Crime, ,Historic, ,Western, ,American, ,North American, ,USA, "
+    }
+  },
+  {
+    "title": "Risk of Rain 2",
+    "staff_link": "https://gameopedia.com/staff/games/39816",
+    "developer": "Hopoo Games, LLC,",
+    "release data": "11-08-2020",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Sci-Fi, ,Stranded, "
+    }
+  },
+  {
+    "title": "Hades",
+    "staff_link": "https://gameopedia.com/staff/games/69683",
+    "developer": "Supergiant Games, LLC,",
+    "release data": "17-09-2020",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Family, ,Mythology, ,Fantasy, ,Escape, ,High Fantasy, ,Greek, "
+    }
+  },
+  {
+    "title": "Grand Theft Auto V",
+    "staff_link": "https://gameopedia.com/staff/games/80363",
+    "developer": "Rockstar North Limited,",
+    "category": {
+      "Theme": "Crime, ,Urban, ,Parody, ,Thievery / Robbery, ,American, ,North American, ,USA, "
+    }
+  },
+  {
+    "title": "The Elder Scrolls V: Skyrim Anniversary Edition",
+    "staff_link": "https://gameopedia.com/staff/games/89424",
+    "developer": "Bethesda Game Studios,",
+    "release data": "11-11-2021",
+    "locality": "United States (US)",
+    "category": {
+      "Theme": "Fantasy, ,Apocalyptic, ,Dragon, ,High Fantasy, "
+    }
   }
 ]
