@@ -242,44 +242,284 @@ document.addEventListener("DOMContentLoaded", function() {
         chatBox.appendChild(thinkingMsg);
     }
 
+
+
+
+
+
     // Function to send message
-    function sendMessage(message) {
-        // Add message to chatbox as 'outgoing'
-        const outgoingMsg = document.createElement('li');
-        outgoingMsg.classList.add('chat', 'outgoing');
-        outgoingMsg.innerHTML = `<p>${message}</p>`;
-        chatBox.appendChild(outgoingMsg);
+//     function sendMessage(message) {
+//         // Add message to chatbox as 'outgoing'
+//         const outgoingMsg = document.createElement('li');
+//         outgoingMsg.classList.add('chat', 'outgoing');
+//         outgoingMsg.innerHTML = `<p>${message}</p>`;
+//         chatBox.appendChild(outgoingMsg);
 
-        // Clear input area
-        chatInput.value = '';
+//         // Clear input area
+//         chatInput.value = '';
+//  // Static response (replace this with your actual static data)
+//  const staticResponse = {
+//     "title": "Hollow Knight",
+//     "staff_link": "https://gameopedia.com/staff/games/25291",
+//     "category": {
+//         "Business Model": "No Microtransactions ,Ads ,No Ads ,Subscription Model ,Game Acquisition ,No Subscription Model ,Buy to Acquire ,Microtransactions ,Buy to Acquire ",
+//         "Genre": "Platform ",
+//         "Sub-genre": "Fighting ,Adventure ",
+//         "Theme": "Animal ,Fantasy ,Mystery ,Anthropomorphism ,Anthropomorphic Animals ,High Fantasy ,Insect "
+//     },
+//     "developer": "Team Cherry Pty. Ltd.,",
+//     "release data": "24-02-2017",
+//     "locality": "United States (US)",
+//     "screenshot": ["https://s3.amazonaws.com/gameopedia_covers/screenshots/5128715/c87bc9dfe840548d3e1cafe0c87489ba.jpg"]
+// };
 
-        // Make request to Flask server
-        fetch('/getGPTPromt', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: message, thread_id: threadId })  // Use extracted thread_id
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Remove thinking indicator
-            chatBox.lastChild.remove();
+// // Remove thinking indicator
+// chatBox.lastChild.remove();
 
-            // Add response to chatbox as 'incoming'
-            const incomingMsg = document.createElement('li');
-            incomingMsg.classList.add('chat', 'incoming');
-            incomingMsg.innerHTML = `<p>${data.response}</p>`;
-            chatBox.appendChild(incomingMsg);
-        })
-        .catch(error => {
-            // Remove thinking indicator and show error
-            chatBox.lastChild.remove();
-            console.error('Error:', error);
-            const errorMsg = document.createElement('li');
-            errorMsg.classList.add('chat', 'incoming');
-            errorMsg.innerHTML = `<p>Sorry, we encountered an issue processing your request. Please try again.</p>`; // Custom error message
-            chatBox.appendChild(errorMsg);
-        });
-    }
+
+// const incomingMsg = document.createElement('li');
+// incomingMsg.classList.add('chat', 'incoming');
+
+// const htmlContent = `
+//     <div>
+//         <h3 class="title">${staticResponse.title}</h3>
+//         <div class="ss-container">
+//             <div class="screenshot-container">
+//                 <h4>Screenshots</h4>
+//                 <img src="${staticResponse.screenshot[0]}" alt="Screenshot">
+//             </div>
+//             <div class="details-container">
+//                 <h5>Details</h5>
+//                 <ul>
+//                     <li>Developer: ${staticResponse.developer}</li>
+//                     <li>Release Date: ${staticResponse["release data"]}</li>
+//                     <li>Locality: ${staticResponse.locality}</li>
+//                 </ul>
+//             </div>
+//         </div>
+//         <div class="categories-container">
+//             <h2 class="cat">Categories</h2>
+//             <table class="categories-table">
+//                 <tr>
+//                     <td>Business Model:</td>
+//                     <td>${staticResponse.category["Business Model"]}</td>
+//                 </tr>
+//                 <tr>
+//                     <td>Genre:</td>
+//                     <td>${staticResponse.category.Genre}</td>
+//                 </tr>
+//                 <tr>
+//                     <td>Sub-genre:</td>
+//                     <td>${staticResponse.category["Sub-genre"]}</td>
+//                 </tr>
+//                 <tr>
+//                     <td>Theme:</td>
+//                     <td>${staticResponse.category.Theme}</td>
+//                 </tr>
+//             </table>
+//         </div>
+//     </div>
+// `;
+
+// // Apply CSS styles
+// const styles = `
+//     .categories-table {
+//         border: 1px solid #ccc;
+//         border-collapse: collapse;
+//         width: 100%;
+//     }
+//     .screenshot-container img{
+//         height: 200px;
+//         width: 240px;
+//     }
+// .cat{
+//     margin-top:"20px"
+// }
+// .categories-container{
+//     margin-top:"10%"
+// }
+//     .categories-table td, .categories-table th {
+//         border: 1px solid #ccc;
+//         padding: 8px;
+//         text-align: left;
+//     }
+
+//     .ss-container {
+//         display: flex;
+//         margin-bottom:38px;
+//     }
+//     .details-container{
+//         margin-top: 50px;
+//     }
+//     .screenshot-container {
+//         margin-top: 10px; /* Adjust as needed */
+//     }
+//     .ss-container {
+//         display: flex;
+       
+//     }
+
+//     .screenshot-container,
+//     .details-container {
+//         margin-right: 50px; /* Adjust as needed */
+//     }
+//     .title{
+//         margin-top:20px;
+//     }
+// `;
+
+// // Set the HTML content to the element with the class incomingMsg
+// incomingMsg.innerHTML = htmlContent;
+
+// // Add styles to the head of the document
+// const styleElement = document.createElement('style');
+// styleElement.innerHTML = styles;
+// document.head.appendChild(styleElement);
+
+// // Append the incoming message to the chatbox
+// chatBox.appendChild(incomingMsg);
+// }
+
+
+function sendMessage(message) {
+    // Add message to chatbox as 'outgoing'
+    const outgoingMsg = document.createElement('li');
+    outgoingMsg.classList.add('chat', 'outgoing');
+    outgoingMsg.innerHTML = `<p>${message}</p>`;
+    chatBox.appendChild(outgoingMsg);
+
+    // Clear input area
+    chatInput.value = '';
+
+    // Make request to Flask server
+    fetch('/getGPTPromt', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message, thread_id: threadId })  // Use extracted thread_id
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data,"DATAAAAAAAAA");
+        // Remove thinking indicator
+        chatBox.lastChild.remove();
+
+        // Add response to chatbox as 'incoming'
+        const incomingMsg = document.createElement('li');
+        incomingMsg.classList.add('chat', 'incoming');
+        if(data.source == true){
+            incomingMsg.innerHTML = `<p>${data.message}</p>`;
+        }else if(data.source == false){           
+        const htmlContent = `
+            <div>
+                <h3 class="title">${data.message.title}</h3>
+                <div class="ss-container">
+                    <div class="screenshot-container">
+                        <h4>Screenshots</h4>
+                        <img src="${data.message.screenshots[0]}" alt="Screenshot">
+                    </div>
+                    <div class="details-container">
+                        <h5>Details</h5>
+                        <ul>
+                            <li>Developer: ${data.message.developer}</li>
+                            <li>Release Date: ${data.message["release data"]}</li>
+                            <li>Locality: ${data.message.locality}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="categories-container">
+                    <h2 class="cat">Categories</h2>
+                    <table class="categories-table">
+                        <tr>
+                            <td>Business Model:</td>
+                            <td>${data.message.category["Business Model"]}</td>
+                        </tr>
+                        <tr>
+                            <td>Genre:</td>
+                            <td>${data.message.category.Genre}</td>
+                        </tr>
+                        <tr>
+                            <td>Sub-genre:</td>
+                            <td>${data.message.category["Sub-genre"]}</td>
+                        </tr>
+                        <tr>
+                            <td>Theme:</td>
+                            <td>${data.message.category.Theme}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        `;
+
+        // Apply CSS styles
+        const styles = `
+            .categories-table {
+                border: 1px solid #ccc;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .screenshot-container img{
+                height: 200px;
+                width: 240px;
+            }
+        .cat{
+            margin-top:"20px"
+        }
+        .categories-container{
+            margin-top:"10%"
+        }
+            .categories-table td, .categories-table th {
+                border: 1px solid #ccc;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .ss-container {
+                display: flex;
+                margin-bottom:38px;
+            }
+            .details-container{
+                margin-top: 50px;
+            }
+            .screenshot-container {
+                margin-top: 10px; /* Adjust as needed */
+            }
+            .ss-container {
+                display: flex;
+            
+            }
+
+            .screenshot-container,
+            .details-container {
+                margin-right: 50px; /* Adjust as needed */
+            }
+            .title{
+                margin-top:20px;
+            }
+        `;
+
+        // Set the HTML content to the element with the class incomingMsg
+        incomingMsg.innerHTML = htmlContent;
+
+        // Add styles to the head of the document
+        const styleElement = document.createElement('style');
+        styleElement.innerHTML = styles;
+        document.head.appendChild(styleElement);
+        }
+        chatBox.appendChild(incomingMsg);
+
+
+    })
+    .catch(error => {
+        // Remove thinking indicator and show error
+        chatBox.lastChild.remove();
+        console.error('Error:', error);
+        const errorMsg = document.createElement('li');
+        errorMsg.classList.add('chat', 'incoming');
+        errorMsg.innerHTML = `<p>Sorry, we encountered an issue processing your request. Please try again.</p>`; // Custom error message
+        chatBox.appendChild(errorMsg);
+    });
+}
+
 });
