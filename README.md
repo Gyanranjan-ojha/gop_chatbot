@@ -1,4 +1,4 @@
-# GameOpedia Chatbot
+# Content Chatbot
 
 A Flask-based chatbot application that provides gaming information using OpenAI's API. The chatbot serves as a gaming data assistant for an online website, providing users with information about various games.
 
@@ -37,7 +37,7 @@ A Flask-based chatbot application that provides gaming information using OpenAI'
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/gop_chatbot.git
+   git clone https://github.com/yourusername/content_chatbot.git
    cd gop_chatbot
    ```
 
